@@ -3,7 +3,13 @@ import axios from "axios";
 export const getData = async (req, res) => {
   try {
     const { category, limit } = req.query;
-    const url = `https://api.publicapis.org/entries?category=${category}`;
+    let url = `https://api.publicapis.org/entries`;
+
+    //check if category is provided
+    if (category) {
+      url += `?category=${category}`;
+    }
+
     const response = await axios.get(url);
     console.log(response.data);
 
