@@ -23,6 +23,26 @@ app.use("/api/auth", authRoutes);
 app.use("/api/data", dataRoute);
 app.use("/api/ethereum", ethereumRoute);
 
+app.get("/", (req, res) => {
+  res.json({
+    message: "Welcome to Carbon Cell Backend Task API",
+    authRoutes: {
+      register: "/api/auth/register",
+      login: "/api/auth/login",
+      logout: "/api/auth/logout",
+    },
+    dataRoutes: {
+      getData: "/api/data",
+      getAllCategories: "/api/data/categories",
+    },
+    ethereumRoutes: {
+      getBalance: "/api/ethereum/balance",
+      sendTransaction: "/api/ethereum/send",
+    },
+    swaggerUi: "/api-docs",
+  });
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });

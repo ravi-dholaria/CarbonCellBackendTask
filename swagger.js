@@ -10,6 +10,9 @@ const swaggerOptions = {
     },
     servers: [
       {
+        url: "https://carboncellbackendtask.onrender.com",
+      },
+      {
         url: "http://localhost:8080",
       },
     ],
